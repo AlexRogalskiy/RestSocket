@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  contextPath: /rest-socket
+  basePath: http://localhost
+  error:
+      path: /error
+      whitelabel:
+          enabled: false
+  ssl:
+    enabled: false
+    key-store: classpath:main.jks
+    key-password: secret
+  socket:
+    text:
+        contextPath: /text
+---
+spring:
+  profiles: local, default
+  resources:
+    #staticLocations: classpath:/static/
+    #cachePeriod: 0
+  application:
+      name: REST API socket
+  main:
+      banner-mode: "console"

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wildbeeslabs.api.rest</groupId>
+    <artifactId>socket</artifactId>
+    <version>1.0.0-RELEASE</version>
+    <packaging>war</packaging>
+
+    <name>rest-api-socket</name>
+    <url>http://maven.apache.org</url>
+    <description>REST API socket</description>
+    <inceptionYear>2017</inceptionYear>
+    
+    <parent>
+        <groupId>com.wildbeeslabs.api.rest</groupId>
+        <artifactId>cascoder</artifactId>
+        <version>1.0.0-RELEASE</version>
+        <relativePath>../cascoder/pom.xml</relativePath>
+    </parent>
+    
+    <issueManagement>
+        <url>https://github.com/AlexRogalskiy/RestSocket/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+        
+    <scm>
+        <connection>scm:git:git://github.com/AlexRogalskiy/RestSocket.git</connection>
+        <url>scm:git:git://github.com/AlexRogalskiy/RestSocket.git</url>
+        <developerConnection>scm:git:git://github.com/AlexRogalskiy/RestSocket.git</developerConnection>
+    </scm>
+    
+    <build>
+        <!--<finalName>rest-api-socket</finalName>-->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

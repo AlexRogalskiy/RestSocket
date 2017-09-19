@@ -1,0 +1,5 @@
+server:
+  socket:
+    text:
+        contextPath: /text
+---
