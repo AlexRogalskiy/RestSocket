@@ -21,5 +21,14 @@ spring:
     #cachePeriod: 0
   application:
       name: REST API socket
+      thymeleaf:
+          cache: false
+          enabled: true
+          prefix: classpath:/templates/
+          suffix: .html
+          checkTemplateLocation: true
+          mode: LEGACYHTML5
+          encoding: UTF-8
+          contentType: text/html
   main:
       banner-mode: "console"

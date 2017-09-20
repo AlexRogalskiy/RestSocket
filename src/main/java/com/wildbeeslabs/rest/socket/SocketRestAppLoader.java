@@ -23,10 +23,12 @@
  */
 package com.wildbeeslabs.rest.socket;
 
+import com.wildbeeslabs.rest.socket.configuration.WebConfiguration;
 import com.wildbeeslabs.rest.socket.configuration.WebSocketConfiguration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 
@@ -39,10 +41,15 @@ import org.springframework.context.annotation.Import;
  * @since 2017-08-08
  */
 @SpringBootApplication(scanBasePackages = {"com.wildbeeslabs.rest.socket"})
-@Import({WebSocketConfiguration.class})
-public class SocketRestAppLoader {// extends SpringBootServletInitializer {
+@Import({WebSocketConfiguration.class, WebConfiguration.class})
+public class SocketRestAppLoader extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(SocketRestAppLoader.class, args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SocketRestAppLoader.class);
     }
 }

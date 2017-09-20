@@ -23,23 +23,22 @@
  */
 package com.wildbeeslabs.rest.socket.configuration;
 
-import com.wildbeeslabs.rest.socket.handler.TextSocketHandler;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
-import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
-@Configuration
-@EnableWebSocket
-public class WebSocketConfiguration implements WebSocketConfigurer {
-
-    @Value("${server.socket.text.contextPath}")
-    private String textContextPath;
+public class ApplicationInitializer implements WebApplicationInitializer {
 
     @Override
-    public void registerWebSocketHandlers(final WebSocketHandlerRegistry registry) {
-        registry.addHandler(new TextSocketHandler(), this.textContextPath);
+    public void onStartup(ServletContext sc) throws ServletException {
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        ctx.setServletContext(sc);
+        ServletRegistration.Dynamic servlet = sc.addServlet("dispatcher", new DispatcherServlet(ctx));
+        servlet.setLoadOnStartup(1);
+        servlet.addMapping("/");
     }
 }
