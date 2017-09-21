@@ -31,6 +31,14 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+/**
+ *
+ * Web Application Initialization Configuration
+ *
+ * @author Alex
+ * @version 1.0.0
+ * @since 2017-08-08
+ */
 public class ApplicationInitializer implements WebApplicationInitializer {
 
     @Override

@@ -35,6 +35,14 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 //import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ *
+ * Web MVC Configuration
+ *
+ * @author Alex
+ * @version 1.0.0
+ * @since 2017-08-08
+ */
 @Configuration
 @EnableWebMvc
 public class WebConfiguration extends WebMvcConfigurerAdapter {
